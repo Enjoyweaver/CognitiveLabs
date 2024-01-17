@@ -45,10 +45,10 @@
 @keyframes animateIn {
   from {
     opacity: 0;
-    transform: translateY(0);
+    max-width: 0; /* Add this line to start with a max-width of 0 */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    max-width: 100%; /* Change this line to set the desired max-width */
   }
 }

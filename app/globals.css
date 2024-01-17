@@ -10,6 +10,7 @@
     --foreground: 200 50% 3%;
     --container-width: 100vw;
     --container-padding-x: 2rem;
+    --max-width: 80vw;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -31,7 +32,7 @@
 @layer utilities {
   @media (max-width: 767px) {
     :root {
-      --container-width: 100vw;
+      --container-width: 80vw;
       --container-padding-x: 2rem;
     }
   }

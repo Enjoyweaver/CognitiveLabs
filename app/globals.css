@@ -26,6 +26,15 @@
   }
 }
 
+@layer utilities {
+  @media (max-width: 767px) {
+    :root {
+      --container-width: 100vw;
+      --container-padding-x: 2rem;
+    }
+  }
+}
+
 .animate-in {
   animation: animateIn 0.3s ease 0.15s both;
 }

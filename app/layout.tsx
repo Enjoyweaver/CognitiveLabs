@@ -26,9 +26,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center w-full">
+        <main className="min-h-screen flex flex-col items-center w-full max-w-container">
           {" "}
-          {/* Added w-full to ensure full width */}
+          {/* Added max-w-container */}
           {children}
         </main>
       </body>

@@ -42,7 +42,7 @@
 @keyframes animateIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(0);
   }
   to {
     opacity: 1;

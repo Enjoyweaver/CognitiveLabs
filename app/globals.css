@@ -27,3 +27,27 @@
     @apply border-foreground/20;
   }
 }
+
+@layer utilities {
+  @media (max-width: 767px) {
+    :root {
+      --container-width: 100vw;
+      --container-padding-x: 2rem;
+    }
+  }
+}
+
+.animate-in {
+  animation: animateIn 0.3s ease 0.15s both;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

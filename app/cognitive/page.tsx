@@ -71,14 +71,14 @@ export default function Cognitive() {
                 Cognitive Functions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-60">Analytical</li>
-                <li className="h-60">Perceptual</li>
-                <li className="h-60">Creative</li>
-                <li className="h-60">Conceptual</li>
-                <li className="h-60">Strategic</li>
-                <li className="h-60">Administrative</li>
-                <li className="h-60">Technical</li>
-                <li className="h-60">Collaborative</li>
+                <li className="h-80">Analytical</li>
+                <li className="h-80">Perceptual</li>
+                <li className="h-80">Creative</li>
+                <li className="h-80">Conceptual</li>
+                <li className="h-80">Strategic</li>
+                <li className="h-80">Administrative</li>
+                <li className="h-80">Technical</li>
+                <li className="h-80">Collaborative</li>
               </ul>
             </div>
 
@@ -90,35 +90,35 @@ export default function Cognitive() {
                 Definitions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-60">
+                <li className="h-80">
                   More than one piece may fit into the puzzle, but not all bring
                   the same value, or at the same time.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Viewing the puzzles from different angles instead of from
                   above the coffee table.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Generating ideas and solutions in an unstructured and
                   free-flowing manner.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Understanding abstract concepts and forming innovative
                   connections between ideas.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Planning and executing long-term strategies to achieve
                   specific goals.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Organizing and managing tasks, resources, and people
                   efficiently.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Applying specialized knowledge and skills to solve practical
                   problems.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Working cooperatively with others to achieve shared
                   objectives.
                 </li>
@@ -133,36 +133,36 @@ export default function Cognitive() {
                 Examples
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-60">
+                <li className="h-80">
                   Some people complete a puzzle best by starting with the edges,
                   others by the colors, and others just start.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   You may view picking out the kids new clothing as a chore, but
                   it could be viewed as a chance to help them define their
                   style.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Approaching a problem by generating as many ideas as possible
                   without worrying about structure or feasibility.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Making connections between seemingly unrelated concepts to
                   create innovative solutions.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Developing a step-by-step plan with milestones and deadlines
                   to achieve a long-term objective.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Efficiently organizing tasks, resources, and team members to
                   achieve project goals.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Applying technical expertise to solve practical problems and
                   challenges.
                 </li>
-                <li className="h-60">
+                <li className="h-80">
                   Collaborating with team members, leveraging each other's
                   strengths, to achieve common goals.
                 </li>

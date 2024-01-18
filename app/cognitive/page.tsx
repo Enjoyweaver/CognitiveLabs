@@ -127,7 +127,7 @@ export default function Cognitive() {
 
             {/* Column 3: Examples */}
             <div
-              className={`bg-red-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center ${styles.rowHeight}`}
+              className={`bg-orange-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center ${styles.rowHeight}`}
             >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Examples

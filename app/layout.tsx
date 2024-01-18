@@ -7,7 +7,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Cognitive Plan",
+  title: "Cognitive Labs",
   description:
     "Schedule your time based on cognitive functions and your schedule",
 };

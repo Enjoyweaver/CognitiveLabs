@@ -103,12 +103,12 @@ export default function Cognitive() {
                   free-flowing manner.
                 </li>
                 <li className="h-80">
-                  Understanding abstract concepts and forming innovative
-                  connections between ideas.
+                  Creating concepts and forming innovative connections between
+                  ideas.
                 </li>
                 <li className="h-80">
-                  Planning and executing long-term strategies to achieve
-                  specific goals.
+                  Using your resources to the best of their ability, even if
+                  they arent designed for that purpose.
                 </li>
                 <li className="h-80">
                   Organizing and managing tasks, resources, and people

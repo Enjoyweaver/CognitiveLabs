@@ -1,10 +1,12 @@
 import React from "react";
-import "./Functions.css"; // You may need to adjust the CSS import based on your project structure
+import "./Functions.css";
 
-interface FunctionsProps {
+// Define the FunctionsProps type
+export interface FunctionsProps {
   isMobile: boolean;
 }
 
+// Use the FunctionsProps type in your functional component
 const Functions: React.FC<FunctionsProps> = ({ isMobile }) => {
   const rowHeight = isMobile ? 40 : 80;
 

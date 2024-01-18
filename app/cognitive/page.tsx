@@ -46,7 +46,7 @@ export default function Cognitive() {
         </div>
       </nav>
 
-      <main className="flex-1 flex flex-col gap-10 max-w-4xl">
+      <main className="flex-1 w-full flex flex-col gap-20 items-center">
         <h2 className="text-center font-bold text-4xl mb-4">
           Cognitive Planning
         </h2>
@@ -71,14 +71,14 @@ export default function Cognitive() {
                 Cognitive Functions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-80">Analytical</li>
-                <li className="h-80">Perceptual</li>
-                <li className="h-80">Creative</li>
-                <li className="h-80">Conceptual</li>
-                <li className="h-80">Strategic</li>
-                <li className="h-80">Administrative</li>
-                <li className="h-80">Technical</li>
-                <li className="h-80">Collaborative</li>
+                <li className="h-40">Analytical</li>
+                <li className="h-40">Perceptual</li>
+                <li className="h-40">Creative</li>
+                <li className="h-40">Conceptual</li>
+                <li className="h-40">Strategic</li>
+                <li className="h-40">Administrative</li>
+                <li className="h-40">Technical</li>
+                <li className="h-40">Collaborative</li>
               </ul>
             </div>
 
@@ -90,35 +90,35 @@ export default function Cognitive() {
                 Definitions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-80">
+                <li className="h-40">
                   More than one piece may fit into the puzzle, but not all bring
                   the same value, or at the same time.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Viewing the puzzles from different angles instead of from
                   above the coffee table.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Generating ideas and solutions in an unstructured and
                   free-flowing manner.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Creating concepts and forming innovative connections between
                   ideas.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Using your resources to the best of their ability, even if
                   they arent designed for that purpose.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Organizing and managing tasks, resources, and people
                   efficiently.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Applying specialized knowledge and skills to solve practical
                   problems.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Working cooperatively with others to achieve shared
                   objectives.
                 </li>
@@ -133,36 +133,36 @@ export default function Cognitive() {
                 Examples
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-80">
+                <li className="h-40">
                   Some people complete a puzzle best by starting with the edges,
                   others by the colors, and others just start.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   You may view picking out the kids new clothing as a chore, but
                   it could be viewed as a chance to help them define their
                   style.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Approaching a problem by generating as many ideas as possible
                   without worrying about structure or feasibility.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Making connections between seemingly unrelated concepts to
                   create innovative solutions.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Developing a step-by-step plan with milestones and deadlines
                   to achieve a long-term objective.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Efficiently organizing tasks, resources, and team members to
                   achieve project goals.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Applying technical expertise to solve practical problems and
                   challenges.
                 </li>
-                <li className="h-80">
+                <li className="h-40">
                   Collaborating with team members, leveraging each other's
                   strengths, to achieve common goals.
                 </li>

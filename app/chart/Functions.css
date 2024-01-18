@@ -1,0 +1,14 @@
+.functions-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  overflow-y: auto;
+}
+
+/* Adjust any additional styling based on your design preferences */

@@ -2,121 +2,42 @@ import Link from "next/link";
 import Step from "./Step";
 import Code from "@/components/Code";
 
-const create = `
-create table notes (
-  id serial primary key,
-  title text
-);
-
-insert into notes(title)
-values
-  ('Today I created a Supabase project.'),
-  ('I added some data and queried it from Next.js.'),
-  ('It was awesome!');
-`.trim();
-
-const server = `
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
-
-export default async function Page() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const { data: notes } = await supabase.from('notes').select()
-
-  return <pre>{JSON.stringify(notes, null, 2)}</pre>
-}
-`.trim();
-
-const client = `
-'use client'
-
-import { createClient } from '@/utils/supabase/client'
-import { useEffect, useState } from 'react'
-
-export default function Page() {
-  const [notes, setNotes] = useState<any[] | null>(null)
-  const supabase = createClient()
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await supabase.from('notes').select()
-      setNotes(data)
-    }
-    getData()
-  }, [])
-
-  return <pre>{JSON.stringify(notes, null, 2)}</pre>
-}
-`.trim();
-
 export default function SignUpUserSteps() {
   return (
     <ol className="flex flex-col gap-6">
       <Step title="Step One">
         <p>
-          Head over to the{" "}
+          Sign up and join the waitlist on the{" "}
           <Link
             href="/login"
             className="font-bold hover:underline text-foreground/80"
           >
             Login
           </Link>{" "}
-          page and sign up with your email and create a new password. Once you
-          finish setting up your account, you'll be redirected back to this
-          page.
+          page with your email address and create a new password. You can finish
+          setting up your account by confirming your email address.
         </p>
       </Step>
 
       <Step title="Step Two">
         <p>
-          Head over to the{" "}
-          <a
-            href="https://supabase.com/dashboard/project/_/editor"
+          Log back in through the{" "}
+          <Link
+            href="/login"
             className="font-bold hover:underline text-foreground/80"
-            target="_blank"
-            rel="noreferrer"
           >
-            Table Editor
-          </a>{" "}
-          for your Supabase project to create a table and insert some example
-          data. If you're stuck for creativity, you can copy and paste the
-          following into the{" "}
-          <a
-            href="https://supabase.com/dashboard/project/_/sql/new"
-            className="font-bold hover:underline text-foreground/80"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SQL Editor
-          </a>{" "}
-          and click RUN!
+            Login
+          </Link>{" "}
+          button and access the wait-room where you can learn more about
+          Cognitive Plan while we continue to build the beta version.
         </p>
-        <div className="overflow-auto">
-          <Code code={create} />
-        </div>
       </Step>
-
-      <Step title="Query Supabase data from Next.js">
+      <Step title="Step Three">
         <p>
-          To create a Supabase client and query data from an Async Server
-          Component, create a new page.tsx file at{" "}
-          <span className="px-2 py-1 rounded-md bg-foreground/20 text-foreground/80">
-            /app/notes/page.tsx
-          </span>{" "}
-          and add the following.
+          Start thinking about your schedule and how you can identify the
+          different tasks that you have. The more precise in the tasks that you
+          can be, the more beneficial the Cognitive Plan will be for you.
         </p>
-        <div className="overflow-auto">
-          <Code code={server} />
-        </div>
-        <p>Alternatively, you can use a Client Component.</p>
-        <div className="overflow-auto">
-          <Code code={client} />
-        </div>
-      </Step>
-
-      <Step title="Build in a weekend and scale to millions!">
-        <p>You're ready to launch your product to the world! 🚀</p>
       </Step>
     </ol>
   );

@@ -14,7 +14,7 @@ const signOut = async () => {
 
 export default function Cognitive() {
   return (
-    <div className="flex-1 flex flex-col items-center">
+    <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <div className="flex w-full justify-between items-center p-3 border-b border-foreground/10">
         <Link
           href="/"

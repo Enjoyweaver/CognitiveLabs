@@ -2,7 +2,7 @@
 
 /* Define a common class for row height */
 .row-height {
-  height: 60px; /* Default height for larger screens */
+  height: 40px; /* Default height for larger screens */
 }
 
 /* Media query to adjust row height for smaller screens */
@@ -10,4 +10,9 @@
   .row-height {
     height: 80px; /* Adjusted height for smaller screens */
   }
+}
+
+/* Define a class for desktop row height */
+.row-height-desktop {
+  height: 60px; /* Adjusted height for desktop screens */
 }

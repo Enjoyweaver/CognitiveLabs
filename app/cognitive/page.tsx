@@ -46,7 +46,7 @@ export default function Cognitive() {
         </div>
       </nav>
 
-      <main className="flex-1 flex flex-col gap-20">
+      <main className="flex-1 flex flex-col gap-10 max-w-4xl">
         <h2 className="text-center font-bold text-4xl mb-4">
           Cognitive Planning
         </h2>

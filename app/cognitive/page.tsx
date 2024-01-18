@@ -47,19 +47,19 @@ export default function Cognitive() {
           Cognitive Planning
         </h2>
 
-        <p className="text-lg">
+        <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
           Welcome to Cognitive Plan, the app designed to help you organize your
           tasks and activities based on various cognitive functions, enhancing
           your efficiency and productivity.
         </p>
 
-        <p className="text-lg">
+        <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
           Here are the cognitive functions we'll be working with and more
           information about them, though do know that we are not saying these
           are all of the cognitive functions, but just that these are the ones
           we'll be working with in this app:
         </p>
-        <main className="flex-1 flex flex-col gap-6 max-w-4xl p-8">
+        <main className="flex-1 flex flex-col gap-6  p-8">
           <div className="flex gap-6">
             {/* Column 1: Cognitive Functions */}
             <div className="bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center">

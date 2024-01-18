@@ -1,3 +1,5 @@
+"use client";
+
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { useState } from "react";

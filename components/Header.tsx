@@ -2,8 +2,8 @@ export default function Header() {
   return (
     <div className="flex flex-col gap-16 items-center">
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
-        Welcome to Cognitive Labs, home of Cognitive Plan, the free scheduling
-        app built with{" "}
+        Welcome to Cognitive Labs, home of the Cognitive Plan, a scheduling app
+        built with{" "}
         <a
           href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
           target="_blank"

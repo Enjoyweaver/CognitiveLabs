@@ -172,6 +172,53 @@ export default function Cognitive() {
         </main>
       </main>
 
+      <div className="mb-4 max-w-lg mx-auto">
+        <h3 className="font-bold text-sm mb-2 text-center">Sources:</h3>
+        <ul className="list-disc pl-4 ">
+          <li>
+            <a
+              href="https://www.frontiersin.org/articles/10.3389/fnhum.2017.00188/full"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Identifying the Best Times for Cognitive Functioning
+            </a>{" "}
+            by M. D. R. Evans, Paul Kelley, Jonathan Kelley
+          </li>
+          <li>
+            <a
+              href="https://answers.childrenshospital.org/circadian-rhythms-synapses/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Timing is everything: How circadian rhythms influence our brains
+            </a>{" "}
+            by Nancy Fliesler
+          </li>
+          <li>
+            <a
+              href="https://apps.dtic.mil/sti/tr/pdf/ADA064445.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Cognitive Processes in Planning
+            </a>{" "}
+            by Barbara Hayes-Roth, Frederick Hayes-Roth (December 1978)
+          </li>
+          <li>
+            <a
+              href="https://www.cell.com/cell/fulltext/S0092-8674(15)00375-X"
+              target="_blank"
+              rel="noreferrer"
+            >
+              The Circadian Protein BMAL1 Regulates Translation in Response to
+              S6K1-Mediated Phosphorylation
+            </a>{" "}
+            by Jonathan O. Lipton, Elizabeth D. Yuan, Lara M. Boyle, Fred Davis,
+            John M. Asara, Mustafa Sahin (Published: May 14, 2015)
+          </li>
+        </ul>
+      </div>
       <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
         <p>
           Created by{" "}
@@ -181,7 +228,7 @@ export default function Cognitive() {
             className="font-bold hover:underline"
             rel="noreferrer"
           >
-            CognitiveLabs
+            Cognitive Labs
           </a>
         </p>
       </footer>

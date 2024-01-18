@@ -8,23 +8,24 @@ export default function SignUpUserSteps() {
       <Step title="Step One">
         <p>
           Sign up and join the waitlist on the Login page with your email
-          address and create a new password. You can finish setting up your
-          account by confirming your email address.
+          address and create a new password. Finish setting up your account by
+          confirming your email address through the link sent to your inbox.
         </p>
       </Step>
 
       <Step title="Step Two">
         <p>
-          Log back in through the Login button and access the wait-room where
-          you can learn more about Cognitive Plan while we continue to build the
-          beta version.
+          Log in to your account above and hang out in the lounge to learn more
+          about the Cognitive Plan app while we continue to build the beta
+          version.
         </p>
       </Step>
       <Step title="Step Three">
         <p>
-          Start thinking about your schedule and how you can identify the
-          different tasks that you have. The more precise in the tasks that you
-          can be, the more beneficial the Cognitive Plan will be for you.
+          Using the knowledge you have acquired in the lounge, you can start
+          thinking about your schedule and considering the different tasks you
+          have on your plate. The more precise you can be, the more beneficial
+          the Cognitive Plan will be for you.
         </p>
       </Step>
     </ol>

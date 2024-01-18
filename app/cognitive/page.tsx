@@ -15,7 +15,7 @@ const signOut = async () => {
 export default function Cognitive() {
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-20">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
           <Link
             href="/"
@@ -64,62 +64,105 @@ export default function Cognitive() {
           <div className="flex gap-6">
             {/* Column 1: Cognitive Functions */}
             <div className="bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center">
-              <h3 className="text-white text-lg font-bold mb-2">
+              <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Cognitive Functions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li>Analytical</li>
-                <li>Perceptual</li>
-                <li>Creative</li>
-                <li>Conceptual</li>
-                <li>Strategic</li>
-                <li>Administrative</li>
-                <li>Technical</li>
-                <li>Collaborative</li>
+                <li className="h-40">Analytical</li>
+                <li className="h-40">Perceptual</li>
+                <li className="h-40">Creative</li>
+                <li className="h-40">Conceptual</li>
+                <li className="h-40">Strategic</li>
+                <li className="h-40">Administrative</li>
+                <li className="h-40">Technical</li>
+                <li className="h-40">Collaborative</li>
               </ul>
             </div>
 
             {/* Column 2: Definitions */}
             <div className="bg-green-500 p-4 flex flex-col items-center">
-              <h3 className="text-white text-lg font-bold mb-2">Definitions</h3>
+              <h3 className="text-white text-lg font-bold mb-2 h-20">
+                Definitions
+              </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li>
-                  <strong>Analytical:</strong> Break down complex tasks into
-                  manageable parts.
+                <li className="h-40">
+                  More than one piece may fit into the puzzle, but not all bring
+                  the same value, or at the same time.
                 </li>
-                <li>
-                  <strong>Perceptual:</strong> Interpret and understand
-                  information from the environment.
+                <li className="h-40">
+                  Viewing the puzzles from different angles instead of from
+                  above the coffee table.
                 </li>
-                {/* Add definitions for other cognitive functions */}
+                <li className="h-40">
+                  Generating ideas and solutions in an unstructured and
+                  free-flowing manner.
+                </li>
+                <li className="h-40">
+                  Understanding abstract concepts and forming innovative
+                  connections between ideas.
+                </li>
+                <li className="h-40">
+                  Planning and executing long-term strategies to achieve
+                  specific goals.
+                </li>
+                <li className="h-40">
+                  Organizing and managing tasks, resources, and people
+                  efficiently.
+                </li>
+                <li className="h-40">
+                  Applying specialized knowledge and skills to solve practical
+                  problems.
+                </li>
+                <li className="h-40">
+                  Working cooperatively with others to achieve shared
+                  objectives.
+                </li>
               </ul>
             </div>
 
             {/* Column 3: Examples */}
             <div className="bg-orange-500 rounded-tr-md rounded-br-md p-4 flex flex-col items-center">
-              <h3 className="text-white text-lg font-bold mb-2">Examples</h3>
+              <h3 className="text-white text-lg font-bold mb-2 h-20">
+                Examples
+              </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li>
-                  <strong>Analytical:</strong> Prioritize and focus on critical
-                  elements of your schedule.
+                <li className="h-40">
+                  Some people complete a puzzle best by starting with the edges,
+                  others by the colors, and others just start.
                 </li>
-                <li>
-                  <strong>Perceptual:</strong> Recognize patterns and trends in
-                  data.
+                <li className="h-40">
+                  You may view picking out the kids new clothing as a chore, but
+                  it could be viewed as a chance to help them define their
+                  style.
                 </li>
-                {/* Add examples for other cognitive functions */}
+                <li className="h-40">
+                  Approaching a problem by generating as many ideas as possible
+                  without worrying about structure or feasibility.
+                </li>
+                <li className="h-40">
+                  Making connections between seemingly unrelated concepts to
+                  create innovative solutions.
+                </li>
+                <li className="h-40">
+                  Developing a step-by-step plan with milestones and deadlines
+                  to achieve a long-term objective.
+                </li>
+                <li className="h-40">
+                  Efficiently organizing tasks, resources, and team members to
+                  achieve project goals.
+                </li>
+                <li className="h-40">
+                  Applying technical expertise to solve practical problems and
+                  challenges.
+                </li>
+                <li className="h-40">
+                  Collaborating with team members, leveraging each other's
+                  strengths, to achieve common goals.
+                </li>
               </ul>
             </div>
           </div>
         </main>
-        <div className="mt-8">
-          <h3 className="font-bold text-2xl mb-2">Analytical Function</h3>
-          <p className="text-lg">
-            The analytical function allows you to break down complex tasks into
-            manageable parts. Use this function to prioritize and focus on
-            critical elements of your schedule.
-          </p>
-        </div>
       </main>
 
       <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">

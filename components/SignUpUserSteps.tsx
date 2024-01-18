@@ -7,29 +7,17 @@ export default function SignUpUserSteps() {
     <ol className="flex flex-col gap-6">
       <Step title="Step One">
         <p>
-          Sign up and join the waitlist on the{" "}
-          <Link
-            href="/login"
-            className="font-bold hover:underline text-foreground/80"
-          >
-            Login
-          </Link>{" "}
-          page with your email address and create a new password. You can finish
-          setting up your account by confirming your email address.
+          Sign up and join the waitlist on the Login page with your email
+          address and create a new password. You can finish setting up your
+          account by confirming your email address.
         </p>
       </Step>
 
       <Step title="Step Two">
         <p>
-          Log back in through the{" "}
-          <Link
-            href="/login"
-            className="font-bold hover:underline text-foreground/80"
-          >
-            Login
-          </Link>{" "}
-          button and access the wait-room where you can learn more about
-          Cognitive Plan while we continue to build the beta version.
+          Log back in through the Login button and access the wait-room where
+          you can learn more about Cognitive Plan while we continue to build the
+          beta version.
         </p>
       </Step>
       <Step title="Step Three">

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import AuthButton from "@/components/AuthButton"; // Import AuthButton if needed
 import { createClient } from "@/utils/supabase/server";
 import Header from "@/components/Header";
+import styles from "./CognitiveStyles.module.css";
 
 const signOut = async () => {
   "use server";
@@ -63,7 +64,9 @@ export default function Cognitive() {
         <main className="flex-1 flex flex-col gap-2  p-8">
           <div className="flex gap-6">
             {/* Column 1: Cognitive Functions */}
-            <div className="bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center">
+            <div
+              className={`bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center ${styles.rowHeight}`}
+            >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Cognitive Functions
               </h3>
@@ -80,7 +83,9 @@ export default function Cognitive() {
             </div>
 
             {/* Column 2: Definitions */}
-            <div className="bg-green-500 p-4 flex flex-col items-center">
+            <div
+              className={`bg-green-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center ${styles.rowHeight}`}
+            >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Definitions
               </h3>
@@ -121,7 +126,9 @@ export default function Cognitive() {
             </div>
 
             {/* Column 3: Examples */}
-            <div className="bg-orange-500 rounded-tr-md rounded-br-md p-4 flex flex-col items-center">
+            <div
+              className={`bg-red-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center ${styles.rowHeight}`}
+            >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Examples
               </h3>

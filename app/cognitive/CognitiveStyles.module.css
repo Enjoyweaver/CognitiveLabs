@@ -1,0 +1,13 @@
+/* CognitiveStyles.module.css */
+
+/* Define a common class for row height */
+.row-height {
+  height: 60px; /* Default height for larger screens */
+}
+
+/* Media query to adjust row height for smaller screens */
+@media screen and (max-width: 768px) {
+  .row-height {
+    height: 80px; /* Adjusted height for smaller screens */
+  }
+}

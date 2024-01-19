@@ -62,7 +62,7 @@ export default function Cognitive() {
           we'll be working with in this app:
         </p>
         <main className="flex-1 flex flex-col gap-20 items-center">
-          <div className="flex">
+          <div className="flex justify-content: space-evenly">
             {/* Column 1: Cognitive Functions */}
             <div
               className={`bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center`}

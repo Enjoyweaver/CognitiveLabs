@@ -61,11 +61,11 @@ export default function Cognitive() {
           are all of the cognitive functions, but just that these are the ones
           we'll be working with in this app:
         </p>
-        <main className="flex-1 w-full flex flex-col gap-20 items-center">
-          <div className="flex flex-col gap-6 md:flex-row md:gap-0">
+        <main className="flex-1 flex flex-col gap-20 items-center">
+          <div className="flex">
             {/* Column 1: Cognitive Functions */}
             <div
-              className={`bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center row-height-desktop`}
+              className={`bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center`}
             >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Cognitive Functions
@@ -83,7 +83,7 @@ export default function Cognitive() {
             </div>
 
             <div
-              className={`bg-green-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center row-height-desktop`}
+              className={`bg-green-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center`}
             >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Definitions
@@ -126,7 +126,7 @@ export default function Cognitive() {
 
             {/* Column 3: Examples */}
             <div
-              className={`bg-orange-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center row-height-desktop`}
+              className={`bg-orange-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center`}
             >
               <h3 className="text-white text-lg font-bold mb-2 h-20">
                 Examples

@@ -6,6 +6,6 @@
 
 @media (max-width: 600px) {
   .row {
-    height: 220px; /* Adjusted height for smaller screens */
+    height: 240px; /* Adjusted height for smaller screens */
   }
 }

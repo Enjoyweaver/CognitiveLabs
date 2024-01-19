@@ -4,8 +4,8 @@
   height: 70px; /* Default height for larger screens */
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .row {
-    height: 220px; /* Adjusted height for smaller screens */
+    height: 240px; /* Adjusted height for smaller screens */
   }
 }

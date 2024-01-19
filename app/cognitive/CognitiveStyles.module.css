@@ -9,6 +9,5 @@
 @media screen and (max-width: 768px) {
   .row {
     height: 80px; /* Adjusted height for smaller screens */
-    max-width: 100vw;
   }
 }

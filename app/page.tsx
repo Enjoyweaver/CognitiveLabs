@@ -6,6 +6,7 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import Header from "@/components/Header";
 import { cookies } from "next/headers";
 import Body from "@/components/Body";
+import "./globals.css";
 
 export default async function Index() {
   const cookieStore = cookies();

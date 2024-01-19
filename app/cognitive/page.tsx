@@ -71,14 +71,14 @@ export default function Cognitive() {
                 Cognitive Functions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-20">Analytical</li>
-                <li className="h-20">Perceptual</li>
-                <li className="h-20">Creative</li>
-                <li className="h-20">Conceptual</li>
-                <li className="h-20">Strategic</li>
-                <li className="h-20">Administrative</li>
-                <li className="h-20">Technical</li>
-                <li className="h-20">Collaborative</li>
+                <li className={styles.row}>Analytical</li>
+                <li className={styles.row}>Perceptual</li>
+                <li className={styles.row}>Creative</li>
+                <li className={styles.row}>Conceptual</li>
+                <li className={styles.row}>Strategic</li>
+                <li className={styles.row}>Administrative</li>
+                <li className={styles.row}>Technical</li>
+                <li className={styles.row}>Collaborative</li>
               </ul>
             </div>
 
@@ -89,35 +89,35 @@ export default function Cognitive() {
                 Definitions
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-20">
+                <li className={styles.row}>
                   More than one piece may fit into the puzzle, but not all bring
                   the same value.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Viewing the puzzles from different angles instead of from
                   above the coffee table.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Generating ideas and solutions in an unstructured and
                   free-flowing manner.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Creating concepts and forming innovative connections between
                   ideas.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Using your resources to the best of their ability, even if
-                  they arent designed for that purpose.
+                  they aren't designed for that purpose.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Organizing and managing tasks, resources, and people
                   efficiently.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Applying specialized knowledge and skills to solve practical
                   problems.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Working cooperatively with others to achieve shared
                   objectives.
                 </li>
@@ -132,35 +132,35 @@ export default function Cognitive() {
                 Examples
               </h3>
               <ul className="list-disc pl-3 text-white text-lg">
-                <li className="h-20">
+                <li className={styles.row}>
                   Some people complete a puzzle best by starting with the edges,
                   others by the colors, and others just start.
                 </li>
-                <li className="h-20">
-                  The kids new clothing as a chore, but it could be viewed as a
+                <li className={styles.row}>
+                  The kids' new clothing as a chore, but it could be viewed as a
                   chance to help them define their style.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Approaching a problem by generating as many ideas as possible
                   without worrying about structure or feasibility.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Making connections between seemingly unrelated concepts to
                   create innovative solutions.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Developing a step-by-step plan with milestones and deadlines
                   to achieve a long-term objective.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Efficiently organizing tasks, resources, and team members to
                   achieve project goals.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Applying technical expertise to solve practical problems and
                   challenges.
                 </li>
-                <li className="h-20">
+                <li className={styles.row}>
                   Collaborating with team members, leveraging each other's
                   strengths, to achieve common goals.
                 </li>

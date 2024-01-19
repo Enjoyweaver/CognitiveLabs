@@ -6,8 +6,8 @@
 }
 
 /* Media query to adjust row height for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 100vw) {
   .row {
-    height: 120px; /* Adjusted height for smaller screens */
+    height: 160px; /* Adjusted height for smaller screens */
   }
 }

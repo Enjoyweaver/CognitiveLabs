@@ -1,11 +1,11 @@
 @tailwind utilities;
 
 .row {
-  height: 70px; /* Default height for larger screens */
+  height: 90px; /* Default height for larger screens */
 }
 
 @media (max-width: 600px) {
   .row {
-    height: 240px; /* Adjusted height for smaller screens */
+    height: 290px; /* Adjusted height for smaller screens */
   }
 }

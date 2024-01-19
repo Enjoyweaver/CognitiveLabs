@@ -15,7 +15,7 @@ const signOut = async () => {
 
 export default function Cognitive() {
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center justify-center px-3">
+    <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
           <Link
@@ -61,7 +61,7 @@ export default function Cognitive() {
           are all of the cognitive functions, but just that these are the ones
           we'll be working with in this app:
         </p>
-        <div className="flex justify-content: space-evenly">
+        <div className="flex pl-20 pr-20">
           {/* Column 1: Cognitive Functions */}
           <div
             className={`bg-blue-500 rounded-tl-md rounded-bl-md p-4 flex flex-col items-center`}

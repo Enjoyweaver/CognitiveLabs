@@ -1,13 +1,13 @@
-/* CognitiveStyles.module.css */
+@tailwind utilities;
 
-/* Common class for row height */
 .row {
-  height: 60px; /* Default height for larger screens */
+  height: 70px; /* Default height for larger screens */
 }
 
-/* Media query to adjust row height for smaller screens */
-@media screen and (max-width: 100vw) {
-  .row {
-    height: 160px; /* Adjusted height for smaller screens */
+@layer utilities {
+  @media (max-width: 100vw) {
+    .row {
+      height: 180px; /* Adjusted height for smaller screens */
+    }
   }
 }

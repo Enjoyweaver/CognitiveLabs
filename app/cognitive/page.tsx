@@ -61,7 +61,7 @@ export default function Cognitive() {
           are all of the cognitive functions, but just that these are the ones
           we'll be working with in this app:
         </p>
-        <main className="flex-1 flex flex-col gap-2  p-8">
+        <main className="flex-1 w-full flex flex-col gap-20 items-center">
           <div className="flex gap-6">
             {/* Column 1: Cognitive Functions */}
             <div

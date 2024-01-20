@@ -16,7 +16,7 @@ export default function SignUpUserSteps() {
       <Step title="Step Two">
         <p>
           Log in to your account above and hang out in the lounge to learn more
-          about the Cognitive Plan app while we continue to build the beta
+          about the Cognitive Planner app while we continue to build the beta
           version.
         </p>
       </Step>
@@ -25,7 +25,7 @@ export default function SignUpUserSteps() {
           Using the knowledge you have acquired in the lounge, you can start
           thinking about your schedule and considering the different tasks you
           have on your plate. The more precise you can be, the more beneficial
-          the Cognitive Plan will be for you.
+          the Cognitive Planner will be for you.
         </p>
       </Step>
     </ol>

@@ -170,6 +170,17 @@ export default function Cognitive() {
         <ul className="list-disc pl-4 ">
           <li>
             <a
+              href="https://www.tandfonline.com/doi/abs/10.1080/13546783.2011.625663"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Time of day effects on problem solving: When the non-optimal is
+              optimal
+            </a>{" "}
+            by Mareike B. Wieth, Rose T. Zacks (Published: Dec, 2011)
+          </li>
+          <li>
+            <a
               href="https://www.apa.org/monitor/2018/06/good-timing"
               target="_blank"
               rel="noreferrer"

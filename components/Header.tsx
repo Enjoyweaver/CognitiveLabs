@@ -5,7 +5,7 @@ export default function Header() {
         Welcome to Cognitive Labs
       </p>
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
-        home of the Cognitive Plan
+        home of the Cognitive Planner
       </p>
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
         a scheduling app built with{" "}

@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div className="flex flex-col gap-10 items-center">
-      <h2 className="font-bold text-2xl">Why the Cognitive Plan?</h2>
+      <h2 className="font-bold text-2xl">Why the Cognitive Planner?</h2>
       <p className="text-1.9xl !leading-tight mx-auto max-w-xl text-center">
         Timing consequences.{" "}
         <a

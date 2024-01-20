@@ -51,9 +51,9 @@ export default function Cognitive() {
           Cognitive Planning
         </h2>
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
-          Welcome to Cognitive Plan, the app designed to help you organize your
-          tasks and activities based on various cognitive functions, enhancing
-          your efficiency and productivity.
+          The Cognitive Planner is an app designed to organize your tasks and
+          activities based on various cognitive functions, enhancing your
+          efficiency and productivity.
         </p>
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
           Here are the cognitive functions we'll be working with and more

@@ -170,6 +170,17 @@ export default function Cognitive() {
         <ul className="list-disc pl-4 ">
           <li>
             <a
+              href="https://www.apa.org/monitor/2018/06/good-timing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Psychologists research highlights how timing can affect memory,
+              attention, mood and more
+            </a>{" "}
+            by Kirsten Weir (Published: June, 2018)
+          </li>
+          <li>
+            <a
               href="https://www.frontiersin.org/articles/10.3389/fnhum.2017.00188/full"
               target="_blank"
               rel="noreferrer"

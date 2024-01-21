@@ -27,16 +27,16 @@ const MorningSlider: React.FC<MorningSliderProps> = ({ value, onChange }) => {
         />
         <div
           className="tooltip"
-          style={{ "--shift": shouldShift ? 1 : 0 }}
+          style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
         ></div>
         <div
           className="control__track"
-          style={{ "--shift": shouldShift ? 1 : 0 }}
+          style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
         >
           <div className="control__indicator"></div>
           <div
             className="tooltip"
-            style={{ "--shift": shouldShift ? 1 : 0 }}
+            style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
           ></div>
         </div>
       </div>

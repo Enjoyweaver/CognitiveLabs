@@ -3,13 +3,18 @@ import React, { useState, ChangeEvent } from "react";
 import "./MorningSlider.css";
 
 const MorningSlider: React.FC = () => {
-  const [value, setValue] = useState<number>(86);
+  const [value, setValue] = useState<number>(50);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(parseInt(event.target.value, 10));
+    const sliderValue = parseInt(event.target.value, 10);
+    setValue(sliderValue);
+    document.documentElement.style.setProperty(
+      "--value",
+      sliderValue.toString()
+    );
   };
 
-  const shouldShift = value > 40 && value < 68;
+  const shouldShift = value > -1 && value < 101;
 
   return (
     <div className="control">
@@ -22,18 +27,18 @@ const MorningSlider: React.FC = () => {
         onChange={handleChange}
       />
       <div
-        aria-hidden="true"
         className="tooltip"
         style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
       ></div>
-      <label htmlFor="track" className="sr-only">
-        Morning to Evening Ratio
-      </label>
       <div
         className="control__track"
         style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
       >
         <div className="control__indicator"></div>
+        <div
+          className="tooltip"
+          style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
+        ></div>
       </div>
     </div>
   );

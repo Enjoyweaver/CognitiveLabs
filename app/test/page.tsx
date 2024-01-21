@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import AuthButton from "@/components/AuthButton"; // Import AuthButton if needed
 import { createClient } from "@/utils/supabase/server";
 import Header from "@/components/Header";
-import styles from "./Test.css";
+import styles from "./Test.module.css";
 import Sources from "@/components/Sources";
 import MorningSlider from "../sliders/MorningSlider";
 

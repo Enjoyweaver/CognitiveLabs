@@ -58,46 +58,9 @@
     syntax: "<integer>";
   }
 
-  .tooltip {
-    font-size: 1rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    pointer-events: none;
-    transform: translateY(calc(var(--shift, 0) * 50%));
-    transition: transform var(--speed) var(--timing);
-    z-index: 2;
-  }
-  @keyframes shift {
-    0%,
-    31%,
-    61%,
-    100% {
-      --shift: 0;
-    }
-    32%,
-    60% {
-      --shift: 1;
-    }
-  }
-
-  .tooltip::after,
-  .tooltip::before {
-    font-variant: tabular-nums;
-    position: absolute;
-    top: 50%;
-    translate: 0 -50%;
-    font-weight: bold;
-    color: white;
-    font-weight: 40;
-    font-family: monospace;
-  }
-
   [type="range"]::-webkit-slider-thumb {
     appearance: none;
-    -webkitappearance: none;
+    -webkit-appearance: none;
     height: 120px;
     width: 40px;
     margin-top: 0px;
@@ -141,15 +104,12 @@
     animation: sync both linear reverse, shift both linear;
     animation-timeline: --thumb;
     animation-range: contain;
+    animation-fill-mode: backwards;
   }
 
   .control__track {
-    --morning: hsl(
-      24 74% calc(24% + (30% * ((100 - var(--value, 0)) / 100)) / 1) / 0.4
-    );
-    --evening: hsl(
-      0 0% 100% / calc(0.1 + (0.4 * ((100 - var(--value, 0)) / 100)))
-    );
+    --morning: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
+    --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--value, 0) / 100))));
     height: calc(50% + (var(--shift) * 50%));
     width: 100%;
     position: absolute;
@@ -180,8 +140,9 @@
     border-radius: 4px;
     transition: width var(--update);
   }
+
   .control__indicator {
-    height: 75%;
+    height: 5%;
     border-radius: 4px;
     width: 4px;
     position: absolute;
@@ -194,60 +155,17 @@
   }
 
   :root {
-    --speed: 0.65s;
+    --speed: 0s;
     --update: 0s;
-    --timing: linear(
-      0,
-      0.5007 7.21%,
-      0.7803 12.29%,
-      0.8883 14.93%,
-      0.9724 17.63%,
-      1.0343 20.44%,
-      1.0754 23.44%,
-      1.0898 25.22%,
-      1.0984 27.11%,
-      1.1014 29.15%,
-      1.0989 31.4%,
-      1.0854 35.23%,
-      1.0196 48.86%,
-      1.0043 54.06%,
-      0.9956 59.6%,
-      0.9925 68.11%,
-      1
-    );
+    --timing: cubic-bezier(0.4, 0, 0.2, 1);
     timeline-scope: --thumb;
-
-    --morning: hsl(
-      24 74% calc(24% + (30% * ((100 - var(--value, 0)) / 100)) / 1) / 0.4
-    );
-    --evening: hsl(
-      0 0% 100% / calc(0.1 + (0.4 * ((100 - var(--value, 0)) / 100)))
-    );
   }
 
   @supports (animation-timeline: scroll()) {
     :root {
-      --speed: 0.65s;
-      --update: 0.1s;
-      --timing: linear(
-        0,
-        0.5007 7.21%,
-        0.7803 12.29%,
-        0.8883 14.93%,
-        0.9724 17.63%,
-        1.0343 20.44%,
-        1.0754 23.44%,
-        1.0898 25.22%,
-        1.0984 27.11%,
-        1.1014 29.15%,
-        1.0989 31.4%,
-        1.0854 35.23%,
-        1.0196 48.86%,
-        1.0043 54.06%,
-        0.9956 59.6%,
-        0.9925 68.11%,
-        1
-      );
+      --speed: 0s;
+      --update: 0s;
+      --timing: cubic-bezier(0.4, 0, 0.2, 1);
       timeline-scope: --thumb;
     }
 
@@ -260,28 +178,46 @@
 
 @layer tip {
   .tooltip {
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    pointer-events: none;
+    transform: translateY(calc(var(--shift, 0) * 50%));
+    transition: transform var(--speed) var(--timing);
+    z-index: 2;
     counter-reset: low var(--value) high calc(100 - var(--value));
   }
 
   .tooltip::before {
-    --range: calc((70 - (var(--value) / 100 * 10)) * 1%);
-    color: hsl(24 74% 54%);
+    --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
+    color: hsl(24, 90%, 36%);
     content: "morning " counter(low) "%";
     mask: linear-gradient(
       90deg,
-      hsl(0 0% 100% / 0.6) var(--range),
-      hsl(0 0% 100% / 1) var(--range)
+      hsl(0 0% 100%) var(--range),
+      rgb(32, 20, 197) var(--range)
     );
     left: 0.5rem;
+    font-variant: tabular-nums;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    font-family: monospace;
   }
+
   .tooltip::after {
     --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
-    content: counter(high) "% evening";
-    mask: linear-gradient(
-      90deg,
-      hsl(0 0% 100% / 1) var(--range),
-      hsl(0 0% 100% / 0.5) var(--range)
-    );
+    color: hsl(236, 74%, 54%);
+    content: "evening " counter(high) "%"; /* Updated content here */
     right: 0.5rem;
+    font-variant: tabular-nums;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+
+    font-family: monospace;
   }
 }

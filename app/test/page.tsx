@@ -7,7 +7,6 @@ import { createClient } from "@/utils/supabase/server";
 import Header from "@/components/Header";
 import styles from "./Test.module.css";
 import Sources from "@/components/Sources";
-import MorningSlider from "../sliders/MorningSlider";
 
 const signOut = async () => {
   "use server";
@@ -52,7 +51,7 @@ export default function Cognitive() {
         <h2 className="text-center font-bold text-4xl mb-4">
           Cognitive Planning
         </h2>
-        <MorningSlider />
+
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
           The Cognitive Planner is an app designed to organize your tasks and
           activities based on various cognitive functions, enhancing your

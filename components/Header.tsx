@@ -2,10 +2,10 @@ export default function Header() {
   return (
     <div className="flex flex-col items-center">
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
-        Welcome to Cognitive Labs
+        Welcome to Cognitive Labs,
       </p>
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
-        home of the Cognitive Planner
+        home of the Cognitive Planner,
       </p>
       <p className="text-2xl !leading-tight mx-auto max-w-xl text-center">
         a scheduling app built with{" "}

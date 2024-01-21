@@ -59,7 +59,7 @@ export default function Cognitive() {
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
           Here are the cognitive abilities we'll be working with and more
           information about them, though do know that we are not saying these
-          are all of the cognitive functions, but just that these are the ones
+          are all of the cognitive abilities, but just that these are the ones
           we'll be working with in this app:
         </p>
         <div className="flex pl-20 pr-20">

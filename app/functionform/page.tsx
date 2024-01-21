@@ -26,23 +26,18 @@ const YourFormComponent: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* Other form inputs */}
-      <label>
-        Are you more of a morning person or a night owl?
-        <input
-          type="text"
-          value={otherInputValue}
-          onChange={handleOtherInputChange}
-        />
-      </label>
+    <div>
+      <h2>Are you more of a morning person or a night owl?</h2>
+      <br />
+      <form onSubmit={handleSubmit}>
+        {/* MorningSlider component */}
+        <MorningSlider value={sliderValue} onChange={handleSliderChange} />
 
-      {/* MorningSlider component */}
-      <MorningSlider value={sliderValue} onChange={handleSliderChange} />
-
-      {/* Submit button */}
-      <button type="submit">Submit</button>
-    </form>
+        {/* Submit button */}
+        <br />
+        <button type="submit">Submit Form</button>
+      </form>
+    </div>
   );
 };
 

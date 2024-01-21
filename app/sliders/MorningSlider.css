@@ -9,215 +9,170 @@
   box-sizing: border-box;
 }
 
-@layer foundation {
-  .control {
-    position: relative;
-    display: grid;
-    place-items: center;
-    margin: 0 auto;
-  }
+/* MorningSlider.css (create this file if it doesn't exist) */
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  .control:focus-within,
-  .control:hover {
-    --active: 1;
-  }
-
-  [type="range"] {
-    width: 300px;
-    opacity: 0;
-    height: 60px;
-  }
-
-  [type="range"]:hover {
-    cursor: -webkit-grab;
-  }
-  [type="range"]:active {
-    cursor: -webkit-grabbing;
-  }
-
-  [type="range"]:focus-visible {
-    outline-offset: 0.25rem;
-    outline-color: transparent;
-  }
-
-  @property --shift {
-    initial-value: 0;
-    inherits: true;
-    syntax: "<integer>";
-  }
-
-  [type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    height: 120px;
-    width: 40px;
-    margin-top: 0px;
-    opacity: 1;
-  }
-  [type="range"]::-webkit-slider-runnable-track {
-    -webkit-appearance: none;
-    height: 120px;
-    background: hsl(10 80% 50% / 0.5);
-    margin-top: -60px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  [type="range"]::-moz-range-track {
-    height: 120px;
-    background: hsl(10 80% 50% / 0.5);
-    margin-top: -60px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
+.morning-slider-container {
+  width: 300px; /* Adjust the width as needed */
+  margin: 0 auto;
 }
 
-@layer scrolls {
-  @property --value {
-    initial-value: 0;
-    syntax: "<integer>";
-    inherits: true;
-  }
-
-  @keyframes sync {
-    to {
-      --value: 100;
-    }
-  }
-
-  [type="range"] {
-    overflow: hidden;
-    opacity: 0;
-    touch-action: none;
-  }
-
-  .control {
-    animation: sync both linear reverse, shift both linear;
-    animation-timeline: --thumb;
-    animation-range: contain;
-    animation-fill-mode: backwards;
-  }
-
-  .control__track {
-    --morning: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
-    --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--value, 0) / 100))));
-    height: calc(50% + (var(--shift) * 50%));
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    pointer-events: none;
-    transition: height var(--speed) var(--timing);
-  }
-
-  .control__track::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: calc(var(--value, 0) * 1% - 0.5rem);
-    background: var(--morning);
-    border-radius: 4px;
-    transition: width var(--update);
-  }
-  .control__track::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: calc((100 - var(--value, 0)) * 1% - 0.5rem);
-    background: var(--evening);
-    border-radius: 4px;
-    transition: width var(--update);
-  }
-
-  .control__indicator {
-    height: 5%;
-    border-radius: 4px;
-    width: 4px;
-    position: absolute;
-    top: 50%;
-    background: hsl(0 0% 100% / calc((var(--active, 0) * 0.5) + 0.5));
-    left: calc(var(--value, 0) * 1%);
-    z-index: 2;
-    translate: -50% -50%;
-    transition: left var(--update);
-  }
-
-  :root {
-    --speed: 0s;
-    --update: 0s;
-    --timing: cubic-bezier(0.4, 0, 0.2, 1);
-    timeline-scope: --thumb;
-  }
-
-  @supports (animation-timeline: scroll()) {
-    :root {
-      --speed: 0s;
-      --update: 0s;
-      --timing: cubic-bezier(0.4, 0, 0.2, 1);
-      timeline-scope: --thumb;
-    }
-
-    [type="range"]::-webkit-slider-thumb {
-      view-timeline-name: --thumb;
-      view-timeline-axis: inline;
-    }
-  }
+.control {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
 }
 
-@layer tip {
-  .tooltip {
-    font-size: 1rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    pointer-events: none;
-    transform: translateY(calc(var(--shift, 0) * 50%));
-    transition: transform var(--speed) var(--timing);
-    z-index: 2;
-    counter-reset: low var(--value) high calc(100 - var(--value));
-  }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
-  .tooltip::before {
-    --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
-    color: hsl(24, 90%, 36%);
-    content: "morning " counter(low) "%";
-    mask: linear-gradient(
-      90deg,
-      hsl(0 0% 100%) var(--range),
-      rgb(32, 20, 197) var(--range)
-    );
-    left: 0.5rem;
-    font-variant: tabular-nums;
-    position: absolute;
-    top: 50%;
-    translate: 0 -50%;
-    font-family: monospace;
-  }
+.control:focus-within,
+.control:hover {
+  --active: 1;
+}
 
-  .tooltip::after {
-    --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
-    color: hsl(236, 74%, 54%);
-    content: "evening " counter(high) "%"; /* Updated content here */
-    right: 0.5rem;
-    font-variant: tabular-nums;
-    position: absolute;
-    top: 50%;
-    translate: 0 -50%;
+[type="range"] {
+  width: 300px;
+  opacity: 0;
+  height: 60px;
+}
 
-    font-family: monospace;
-  }
+[type="range"]:hover {
+  cursor: -webkit-grab;
+}
+
+[type="range"]:active {
+  cursor: -webkit-grabbing;
+}
+
+[type="range"]:focus-visible {
+  outline-offset: 0.25rem;
+  outline-color: transparent;
+}
+
+[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 120px;
+  width: 40px;
+  margin-top: 0px;
+  opacity: 1;
+}
+
+[type="range"]::-webkit-slider-runnable-track,
+[type="range"]::-moz-range-track {
+  height: 120px;
+  background: hsla(202, 91%, 78%, 0.5);
+  margin-top: -60px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.tooltip {
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  pointer-events: none;
+  transform: translateY(calc(var(--shift, 0) * 50%));
+  transition: transform var(--speed) var(--timing);
+  z-index: 2;
+  counter-reset: low var(--value) high calc(100 - var(--value));
+}
+
+.tooltip::before,
+.tooltip::after {
+  --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
+  font-variant: tabular-nums;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: monospace;
+}
+
+.tooltip::before {
+  color: hsl(24, 90%, 36%);
+  content: "morning " counter(low) "%";
+  mask: linear-gradient(
+    90deg,
+    hsl(0 0% 100%) var(--range),
+    rgb(32, 20, 197) var(--range)
+  );
+  left: 0.5rem;
+}
+
+.tooltip::after {
+  color: hsl(236, 74%, 54%);
+  content: "evening " counter(high) "%";
+  right: 0.5rem;
+}
+
+.control__track {
+  --morning: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
+  --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--value, 0) / 100))));
+  height: calc(50% + (var(--shift) * 50%));
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  transition: height var(--speed) var(--timing), background var(--update);
+}
+
+.control__track::before,
+.control__track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 4px;
+  transition: width var(--update);
+}
+
+.control__track::before {
+  left: 0;
+  width: calc(var(--value, 0) * 1% - 0.5rem);
+  background: var(--morning);
+}
+
+.control__track::after {
+  right: 0;
+  width: calc((100 - var(--value, 0)) * 1% - 0.5rem);
+  background: var(--evening);
+}
+
+.control__indicator {
+  height: 5%;
+  border-radius: 4px;
+  width: 4px;
+  position: absolute;
+  top: 50%;
+  background: hsl(0 0% 100% / calc((var(--active, 0) * 0.5) + 0.5));
+  left: calc(var(--value, 0) * 1%);
+  z-index: 2;
+  translate: -50% -50%;
+  transition: left var(--update), background var(--update);
+}
+
+:root {
+  --speed: 0s; /* Adjust this value as needed */
+  --update: 0.1s; /* Adjust this value to make it smaller for faster updates */
+  --timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-input {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
 }

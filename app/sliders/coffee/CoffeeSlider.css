@@ -9,9 +9,9 @@
   box-sizing: border-box;
 }
 
-/* MorningSlider.css (create this file if it doesn't exist) */
+/* coffeeSlider.css (create this file if it doesn't exist) */
 
-.morning-slider-container {
+.coffee-slider-container {
   width: 300px; /* Adjust the width as needed */
   margin: 0 auto;
 }
@@ -102,7 +102,7 @@
 
 .tooltip::before {
   color: hsl(24, 90%, 36%);
-  content: "morning " counter(low) "%";
+
   mask: linear-gradient(
     90deg,
     hsl(0 0% 100%) var(--range),
@@ -113,12 +113,12 @@
 
 .tooltip::after {
   color: hsl(236, 74%, 54%);
-  content: "evening " counter(high) "%";
+
   right: 0.5rem;
 }
 
 .control__track {
-  --morning: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
+  --coffee: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
   --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--value, 0) / 100))));
   height: calc(50% + (var(--shift) * 50%));
   width: 100%;
@@ -141,7 +141,7 @@
 .control__track::before {
   left: 0;
   width: calc(var(--value, 0) * 1% - 0.5rem);
-  background: var(--morning);
+  background: var(--coffee);
 }
 
 .control__track::after {

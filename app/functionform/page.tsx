@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, FormEvent } from "react";
-import MorningBalance from "../sliders/MorningFinal";
+import MorningForm from "../sliders/MorningFinal";
 import CoffeeForm from "../sliders/CoffeeFinal";
 
 const YourFormComponent: React.FC = () => {
@@ -25,14 +25,11 @@ const YourFormComponent: React.FC = () => {
   return (
     <div>
       <br />
-      <MorningBalance
-        morningvalue={morningValue}
-        onChange={handleMorningChange}
-      />
+      <MorningForm />
       {/* MorningSlider component */}
 
       <br />
-      <CoffeeForm coffeevalue={coffeeValue} onChange={handleCoffeeChange} />
+      <CoffeeForm />
       {/* CoffeeSlider component */}
 
       <br />

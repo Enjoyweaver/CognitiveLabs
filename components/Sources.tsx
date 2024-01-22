@@ -6,6 +6,41 @@ export default function Sources() {
         <ul className="list-disc pl-4 ">
           <li>
             <a
+              href="https://peerj.com/preprints/27576/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Within-person structures of daily cognitive performance cannot be
+              inferred from between-person structures of cognitive abilities
+            </a>{" "}
+            by Florian Schmiedek​, Martin Lövdén, Timo von Oertzen, Ulman
+            Lindenberger. Center for Lifespan Development (Published: Mar 11,
+            2019)
+          </li>
+          <li>
+            <a
+              href="https://deliverypdf.ssrn.com/delivery.php?ID=299118127070014114103115065109116107071081020021005061018044043042127038073116007007013073086021061078024094118000115065025118070014074067026095107083122106071123092069026099118086&EXT=pdf&INDEX=TRUE"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Time of Day, Cognitive Tasks and Efficiency Gains
+            </a>{" "}
+            by Gaggero, Alessio and Tommasi, Denni. IZA Discussion Paper No.
+            13657 (Published: Sep 9, 2020)
+          </li>
+          <li>
+            <a
+              href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6200828/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              The effects of time of day and chronotype on cognitive and
+              physical performance in healthy volunteers
+            </a>{" "}
+            by Mareike B. Wieth, Rose T. Zacks (Published: Dec, 2011)
+          </li>
+          <li>
+            <a
               href="https://www.tandfonline.com/doi/abs/10.1080/13546783.2011.625663"
               target="_blank"
               rel="noreferrer"
@@ -13,7 +48,7 @@ export default function Sources() {
               Time of day effects on problem solving: When the non-optimal is
               optimal
             </a>{" "}
-            by Mareike B. Wieth, Rose T. Zacks (Published: Dec, 2011)
+            by Facer-Childs ER, Boiling S, Balanos GM. (Published: Oct 24, 2018)
           </li>
           <li>
             <a

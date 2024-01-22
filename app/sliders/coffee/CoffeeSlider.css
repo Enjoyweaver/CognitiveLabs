@@ -9,8 +9,6 @@
   box-sizing: border-box;
 }
 
-/* coffeeSlider.css (create this file if it doesn't exist) */
-
 .coffee-slider-container {
   width: 300px; /* Adjust the width as needed */
   margin: 0 auto;
@@ -87,12 +85,12 @@
   transform: translateY(calc(var(--shift, 0) * 50%));
   transition: transform var(--speed) var(--timing);
   z-index: 2;
-  counter-reset: low var(--value) high calc(100 - var(--value));
+  counter-reset: low var(--coffee-value) high calc(100 - var(--coffee-value));
 }
 
 .tooltip::before,
 .tooltip::after {
-  --range: calc((50 - (var(--value) / 100 * 10)) * 1%);
+  --range: calc((50 - (var(--coffee-value) / 100 * 10)) * 1%);
   font-variant: tabular-nums;
   position: absolute;
   top: 50%;
@@ -100,32 +98,17 @@
   font-family: monospace;
 }
 
-.tooltip::before {
-  color: hsl(24, 90%, 36%);
-
-  mask: linear-gradient(
-    90deg,
-    hsl(0 0% 100%) var(--range),
-    rgb(32, 20, 197) var(--range)
-  );
-  left: 0.5rem;
-}
-
-.tooltip::after {
-  color: hsl(236, 74%, 54%);
-
-  right: 0.5rem;
-}
-
 .control__track {
-  --coffee: hsl(24 74% calc(24% + (30% * (var(--value, 0) / 100))) / 0.4);
-  --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--value, 0) / 100))));
+  --coffee: hsl(
+    24 74% calc(24% + (30% * (var(--coffee-value, 0) / 100))) / 0.4
+  );
+  --water: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--coffee-value, 0) / 100))));
   height: calc(50% + (var(--shift) * 50%));
   width: 100%;
   position: absolute;
   bottom: 0;
   pointer-events: none;
-  transition: height var(--speed) var(--timing), background var(--update);
+  transition: height var(--speed) var(--timing);
 }
 
 .control__track::before,
@@ -135,19 +118,17 @@
   top: 0;
   bottom: 0;
   border-radius: 4px;
-  transition: width var(--update);
+  transition: width var(--coffee--update);
 }
 
 .control__track::before {
   left: 0;
-  width: calc(var(--value, 0) * 1% - 0.5rem);
-  background: var(--coffee);
+  width: calc(var(--coffee-value, 0) * 1% - 0.5rem);
 }
 
 .control__track::after {
   right: 0;
-  width: calc((100 - var(--value, 0)) * 1% - 0.5rem);
-  background: var(--evening);
+  width: calc((100 - var(--coffee-value, 0)) * 1% - 0.5rem);
 }
 
 .control__indicator {
@@ -157,16 +138,10 @@
   position: absolute;
   top: 50%;
   background: hsl(0 0% 100% / calc((var(--active, 0) * 0.5) + 0.5));
-  left: calc(var(--value, 0) * 1%);
+  left: calc(var(--coffee-value, 0) * 1%);
   z-index: 2;
   translate: -50% -50%;
-  transition: left var(--update), background var(--update);
-}
-
-:root {
-  --speed: 0s; /* Adjust this value as needed */
-  --update: 0.1s; /* Adjust this value to make it smaller for faster updates */
-  --timing: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left var(--coffee--update), background var(--coffee--update);
 }
 
 .slider-input {

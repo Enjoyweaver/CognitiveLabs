@@ -1,21 +1,44 @@
-// YourFormComponent.tsx
-import React from "react";
-import MorningBalance from "../morning/MorningFinal";
-import CoffeeBalance from "../sliders/coffee/CoffeeFinal";
+"use client";
+import React, { useState, FormEvent } from "react";
+import MorningBalance from "../sliders/MorningFinal";
+import CoffeeForm from "../sliders/CoffeeFinal";
 
 const YourFormComponent: React.FC = () => {
+  const [morningValue, setMorningValue] = useState<number>(50);
+  const [coffeeValue, setCoffeeValue] = useState<number>(50);
+
+  const handleMorningChange = (value: number) => {
+    setMorningValue(value);
+  };
+
+  const handleCoffeeChange = (value: number) => {
+    setCoffeeValue(value);
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    console.log("Morning Value:", morningValue);
+    console.log("Coffee Value:", coffeeValue);
+    // Add logic to submit the values to your backend or perform further actions
+  };
+
   return (
     <div>
-      <h2>Are you more of a morning person or a night owl?</h2>
       <br />
-
+      <MorningBalance
+        morningvalue={morningValue}
+        onChange={handleMorningChange}
+      />
       {/* MorningSlider component */}
 
       <br />
-      <CoffeeBalance />
-      {/* Submit button */}
+      <CoffeeForm coffeevalue={coffeeValue} onChange={handleCoffeeChange} />
+      {/* CoffeeSlider component */}
+
       <br />
-      <button type="submit">Submit Form</button>
+      <button type="submit" onClick={handleSubmit}>
+        Submit Form
+      </button>
     </div>
   );
 };

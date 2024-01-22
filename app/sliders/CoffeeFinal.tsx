@@ -1,4 +1,101 @@
-@font-face {
+"use client";
+
+import React, { useState, ChangeEvent, useEffect } from "react";
+
+interface CoffeeSliderProps {
+  coffeevalue: number;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const CoffeeSlider: React.FC<CoffeeSliderProps> = ({
+  coffeevalue,
+  onChange,
+}) => {
+  const shouldShift = coffeevalue > -1 && coffeevalue < 101;
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--coffee-value",
+      coffeevalue.toString()
+    );
+  }, [coffeevalue]);
+
+  return (
+    <div className="coffee-slider-container">
+      <div className="control">
+        <input
+          id="track"
+          type="range"
+          min="0"
+          max="100"
+          value={coffeevalue}
+          onChange={onChange}
+          className="slider-input"
+        />
+        <div
+          className="tooltip"
+          style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
+        ></div>
+        <div
+          className="control__track"
+          style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
+        ></div>
+      </div>
+      <style>{CoffeeSliderStyle}</style>
+    </div>
+  );
+};
+
+const CoffeeForm: React.FC = () => {
+  const [coffeeslidervalue, setCoffeeslidervalue] = useState<number>(50);
+
+  const handleSliderChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const coffeevalue = parseInt(event.target.value, 10);
+    setCoffeeslidervalue(coffeevalue);
+    document.documentElement.style.setProperty(
+      "--coffee-value",
+      coffeevalue.toString()
+    );
+  };
+
+  return (
+    <div>
+      <h2>Are you more of a coffee person or an evening person?</h2>
+      <br />
+      <form>
+        <CoffeeSlider
+          coffeevalue={coffeeslidervalue}
+          onChange={handleSliderChange}
+        />
+        <br />
+        <br />
+      </form>
+    </div>
+  );
+};
+
+const CoffeeSliderStyle = `
+  .tooltip::before {
+    color: var(--coffeeColor, hsla(24, 90%, 36%, 0.5));
+    content: var(--coffeeLabel, "coffee") " " counter(low) "%";
+    left: 0.5rem;
+  }
+
+  .tooltip::after {
+    color: var(--waterColor, hsla(236, 74%, 54%, 0.5));
+    content: var(--waterLabel, "water") " " counter(high) "%";
+    right: 0.5rem;
+  }
+
+  .control__track::before {
+    background: var(--coffeeColor, hsla(24, 90%, 36%, 0.5));
+  }
+
+  .control__track::after {
+    background: var(--waterColor, hsla(236, 74%, 54%, 0.5));
+  }
+
+  @font-face {
   font-family: "Geist Sans";
   src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
 }
@@ -151,3 +248,9 @@
   z-index: 2;
   cursor: pointer;
 }
+
+`;
+
+export { CoffeeSlider, CoffeeSliderStyle };
+
+export default CoffeeForm;

@@ -31,7 +31,7 @@ const YourFormComponent: React.FC = () => {
       <br />
       <form onSubmit={handleSubmit}>
         {/* MorningSlider component */}
-        <MorningSlider valu={sliderValue} onChange={handleSliderChange} />
+        <MorningSlider value={sliderValue} onChange={handleSliderChange} />
         <br />
         {/* Submit button */}
         <br />

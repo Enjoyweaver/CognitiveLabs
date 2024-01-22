@@ -1,19 +1,16 @@
 "use client";
-import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import MorningFinal from "../sliders/morning/MorningFinal";
 import CoffeeFinal from "../sliders/coffee/CoffeeFinal";
 
 const YourFormComponent: React.FC = () => {
-  const [morningSliderValue, setMorningSliderValue] = useState<number>(50);
-  const [coffeeSliderValue, setCoffeeSliderValue] = useState<number>(50);
-  const [otherInputValue, setOtherInputValue] = useState<string>("");
+  const [sliderValue, setSliderValue] = useState<number>(50);
+  const [otherInputValue, setOtherInputValue] = useState<string>(""); // Add state for other form inputs
 
-  const handleMorningSliderChange = (value: number) => {
-    setMorningSliderValue(value);
-  };
-
-  const handleCoffeeSliderChange = (value: number) => {
-    setCoffeeSliderValue(value);
+  const handleSliderChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10);
+    setSliderValue(value);
+    document.documentElement.style.setProperty("--value", value.toString());
   };
 
   const handleOtherInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -21,23 +18,10 @@ const YourFormComponent: React.FC = () => {
     setOtherInputValue(value);
   };
 
-  useEffect(() => {
-    // Set styling variables on the client side
-    document.documentElement.style.setProperty(
-      "--morning-value",
-      morningSliderValue.toString()
-    );
-    document.documentElement.style.setProperty(
-      "--coffee-value",
-      coffeeSliderValue.toString()
-    );
-  }, [morningSliderValue, coffeeSliderValue]);
-
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // Handle form submission, you can access morningSliderValue, coffeeSliderValue, and otherInputValue here
-    console.log("Morning Slider Value:", morningSliderValue);
-    console.log("Coffee Slider Value:", coffeeSliderValue);
+    // Handle form submission, you can access sliderValue and otherInputValue here
+    console.log("Slider Value:", sliderValue);
     console.log("Other Input Value:", otherInputValue);
     // Add your logic for form submission
   };
@@ -48,16 +32,9 @@ const YourFormComponent: React.FC = () => {
       <br />
       <form onSubmit={handleSubmit}>
         {/* MorningSlider component */}
-        <MorningFinal
-          value={morningSliderValue}
-          onChange={handleMorningSliderChange}
-        />
+        <MorningFinal />
         <br />
-        {/* CoffeeSlider component */}
-        <CoffeeFinal
-          value={coffeeSliderValue}
-          onChange={handleCoffeeSliderChange}
-        />
+        <CoffeeFinal />
         {/* Submit button */}
         <br />
         <button type="submit">Submit Form</button>

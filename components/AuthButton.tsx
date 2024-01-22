@@ -31,7 +31,7 @@ export default async function AuthButton() {
     </div>
   ) : (
     <Link
-      href="/cognitive"
+      href="/morning"
       className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
     >
       Login

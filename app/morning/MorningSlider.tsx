@@ -4,7 +4,7 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import "./MorningSlider.css";
 
 interface MorningSliderProps {
-  valu: number;
+  value: number;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   morningColor?: string;
   eveningColor?: string;
@@ -13,18 +13,18 @@ interface MorningSliderProps {
 }
 
 const MorningSlider: React.FC<MorningSliderProps> = ({
-  valu,
+  value,
   onChange,
   morningColor = "hsla(24, 90%, 36%, 0.5)",
   eveningColor = "hsla(236, 74%, 54%, 0.5)",
   morningLabel = "morning",
   eveningLabel = "evening",
 }) => {
-  const shouldShift = valu > -1 && valu < 101;
+  const shouldShift = value > -1 && value < 101;
 
   useEffect(() => {
-    // Set initial valu to 50% when the component mounts
-    document.documentElement.style.setProperty("--valu", "50");
+    // Set initial value to 50% when the component mounts
+    document.documentElement.style.setProperty("--value", "50");
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const MorningSlider: React.FC<MorningSliderProps> = ({
             type="range"
             min="0"
             max="100"
-            value={valu}
+            value={value}
             onChange={onChange}
             className="slider-input"
           />

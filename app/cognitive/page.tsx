@@ -43,7 +43,7 @@ export default function Cognitive() {
             <button className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
               Logout
             </button>
-          </form>
+          </form>{" "}
         </div>
       </nav>
 

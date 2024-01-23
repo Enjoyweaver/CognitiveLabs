@@ -2,6 +2,7 @@
 import React, { useState, FormEvent } from "react";
 import MorningForm from "../sliders/MorningFinal";
 import CoffeeForm from "../sliders/CoffeeFinal";
+import Account from "../accountform/account-form";
 
 const YourFormComponent: React.FC = () => {
   const [morningValue, setMorningValue] = useState<number>(50);
@@ -24,6 +25,7 @@ const YourFormComponent: React.FC = () => {
 
   return (
     <div>
+      <Account session={null} />
       <br />
       <MorningForm />
       {/* MorningSlider component */}

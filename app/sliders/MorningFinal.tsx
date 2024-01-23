@@ -22,7 +22,7 @@ const MorningSlider: React.FC<MorningSliderProps> = ({
 
   return (
     <div className="morning-slider-container">
-      <div className="control">
+      <div className="morningcontrol">
         <input
           id="track"
           type="range"
@@ -30,7 +30,7 @@ const MorningSlider: React.FC<MorningSliderProps> = ({
           max="100"
           value={morningvalue}
           onChange={onChange}
-          className="slider-input"
+          className="morningslider-input"
         />
         <div
           className="morningtooltip"
@@ -111,7 +111,7 @@ const MorningSliderStyle = `
   margin: 0 auto;
 }
 
-.control {
+.morningcontrol {
   position: relative;
   display: grid;
   place-items: center;
@@ -130,8 +130,8 @@ const MorningSliderStyle = `
   border-width: 0;
 }
 
-.control:focus-within,
-.control:hover {
+.morningcontrol:focus-within,
+.morningcontrol:hover {
   --active: 1;
 }
 
@@ -228,7 +228,7 @@ const MorningSliderStyle = `
   width: calc((100 - var(--morning-value, 0)) * 1% - 0.5rem);
 }
 
-.control__indicator {
+.morningcontrol__indicator {
   height: 5%;
   border-radius: 4px;
   width: 4px;
@@ -241,7 +241,7 @@ const MorningSliderStyle = `
   transition: left var(--morning--update), background var(--morning--update);
 }
 
-.slider-input {
+.morningslider-input {
   position: relative;
   width: 100%;
   opacity: 0;

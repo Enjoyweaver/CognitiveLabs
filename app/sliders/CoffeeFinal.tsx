@@ -22,7 +22,7 @@ const CoffeeSlider: React.FC<CoffeeSliderProps> = ({
 
   return (
     <div className="coffee-slider-container">
-      <div className="control">
+      <div className="coffeecontrol">
         <input
           id="track"
           type="range"
@@ -30,14 +30,14 @@ const CoffeeSlider: React.FC<CoffeeSliderProps> = ({
           max="100"
           value={coffeevalue}
           onChange={onChange}
-          className="slider-input"
+          className="coffeeslider-input"
         />
         <div
-          className="tooltip"
+          className="coffeetooltip"
           style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
         ></div>
         <div
-          className="control__track"
+          className="coffeecontrol__track"
           style={{ "--shift": shouldShift ? 1 : 0 } as React.CSSProperties}
         ></div>
       </div>
@@ -75,23 +75,23 @@ const CoffeeForm: React.FC = () => {
 };
 
 const CoffeeSliderStyle = `
-  .tooltip::before {
+  .coffeetooltip::before {
     color: var(--coffeeColor, hsla(24, 90%, 36%, 0.5));
     content: var(--coffeeLabel, "coffee") " " counter(low) "%";
     left: 0.5rem;
   }
 
-  .tooltip::after {
+  .coffeetooltip::after {
     color: var(--waterColor, hsla(236, 74%, 54%, 0.5));
     content: var(--waterLabel, "water") " " counter(high) "%";
     right: 0.5rem;
   }
 
-  .control__track::before {
+  .coffeecontrol__track::before {
     background: var(--coffeeColor, hsla(24, 90%, 36%, 0.5));
   }
 
-  .control__track::after {
+  .coffeecontrol__track::after {
     background: var(--waterColor, hsla(236, 74%, 54%, 0.5));
   }
 
@@ -111,7 +111,7 @@ const CoffeeSliderStyle = `
   margin: 0 auto;
 }
 
-.control {
+.coffeecontrol {
   position: relative;
   display: grid;
   place-items: center;
@@ -130,8 +130,8 @@ const CoffeeSliderStyle = `
   border-width: 0;
 }
 
-.control:focus-within,
-.control:hover {
+.coffeecontrol:focus-within,
+.coffeecontrol:hover {
   --active: 1;
 }
 
@@ -171,7 +171,7 @@ const CoffeeSliderStyle = `
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
-.tooltip {
+.coffeetooltip {
   font-size: 1rem;
   position: absolute;
   top: 0;
@@ -185,8 +185,8 @@ const CoffeeSliderStyle = `
   counter-reset: low var(--coffee-value) high calc(100 - var(--coffee-value));
 }
 
-.tooltip::before,
-.tooltip::after {
+.coffeetooltip::before,
+.coffeetooltip::after {
   --range: calc((50 - (var(--coffee-value) / 100 * 10)) * 1%);
   font-variant: tabular-nums;
   position: absolute;
@@ -195,7 +195,7 @@ const CoffeeSliderStyle = `
   font-family: monospace;
 }
 
-.control__track {
+.coffeecontrol__track {
   --coffee: hsl(
     24 74% calc(24% + (30% * (var(--coffee-value, 0) / 100))) / 0.4
   );
@@ -208,8 +208,8 @@ const CoffeeSliderStyle = `
   transition: height var(--speed) var(--timing);
 }
 
-.control__track::before,
-.control__track::after {
+.coffeecontrol__track::before,
+.coffeecontrol__track::after {
   content: "";
   position: absolute;
   top: 0;
@@ -218,17 +218,17 @@ const CoffeeSliderStyle = `
   transition: width var(--coffee--update);
 }
 
-.control__track::before {
+.coffeecontrol__track::before {
   left: 0;
   width: calc(var(--coffee-value, 0) * 1% - 0.5rem);
 }
 
-.control__track::after {
+.coffeecontrol__track::after {
   right: 0;
   width: calc((100 - var(--coffee-value, 0)) * 1% - 0.5rem);
 }
 
-.control__indicator {
+.coffeecontrol__indicator {
   height: 5%;
   border-radius: 4px;
   width: 4px;
@@ -241,7 +241,7 @@ const CoffeeSliderStyle = `
   transition: left var(--coffee--update), background var(--coffee--update);
 }
 
-.slider-input {
+.coffeeslider-input {
   position: relative;
   width: 100%;
   opacity: 0;

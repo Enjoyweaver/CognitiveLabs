@@ -1,12 +1,15 @@
 "use client";
-import React, { useState, FormEvent } from "react";
+import { createClient } from "@/utils/supabase/client";
+import React, { useState, FormEvent, useEffect } from "react";
 import MorningForm from "../sliders/MorningFinal";
 import CoffeeForm from "../sliders/CoffeeFinal";
 import Account from "../accountform/account-form";
 
 const YourFormComponent: React.FC = () => {
+  const [profile, setProfile] = useState<any[] | null>(null);
   const [morningValue, setMorningValue] = useState<number>(50);
   const [coffeeValue, setCoffeeValue] = useState<number>(50);
+  const supabase = createClient();
 
   const handleMorningChange = (value: number) => {
     setMorningValue(value);
@@ -22,6 +25,14 @@ const YourFormComponent: React.FC = () => {
     console.log("Coffee Value:", coffeeValue);
     // Add logic to submit the values to your backend or perform further actions
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await supabase.from("profiles").select();
+      setProfile(data);
+    };
+    getData();
+  }, []);
 
   return (
     <div>

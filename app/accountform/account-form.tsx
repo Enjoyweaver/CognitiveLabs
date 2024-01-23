@@ -23,7 +23,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`full_name, username, website, avatar_url`)
-        .eq("id", user?.id ?? "")
+        .eq("id", user?.id || "")
         .single();
 
       if (error && status !== 406) {
@@ -53,24 +53,35 @@ export default function AccountForm({ session }: { session: Session | null }) {
     avatar_url,
   }: {
     username: string | null;
-    fullname: string | null;
     website: string | null;
     avatar_url: string | null;
   }) {
     try {
       setLoading(true);
 
-      let { error } = await supabase.from("profiles").upsert({
-        id: user?.id as string,
-        full_name: fullname,
-        username,
-        website,
-        avatar_url,
-        updated_at: new Date().toISOString(),
-      });
+      if (!user?.id) {
+        throw new Error("User ID is null");
+      }
+
+      let { error } = await supabase.from("profiles").upsert(
+        [
+          {
+            id: user?.id as string,
+            full_name: fullname,
+            username,
+            website,
+            avatar_url,
+            updated_at: new Date().toISOString(),
+          },
+        ],
+        { onConflict: ["id"] }
+      );
+
       if (error) throw error;
+
       alert("Profile updated!");
     } catch (error) {
+      console.error("Error updating the data:", error);
       alert("Error updating the data!");
     } finally {
       setLoading(false);
@@ -80,7 +91,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
   return (
     <div className="form-widget">
       <Avatar
-        uid={user?.id}
+        uuid={user?.id || "defaultUUID"}
         url={avatar_url}
         size={150}
         onUpload={(url) => {
@@ -88,6 +99,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
           updateProfile({ fullname, username, website, avatar_url: url });
         }}
       />
+
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session?.user.email} disabled />

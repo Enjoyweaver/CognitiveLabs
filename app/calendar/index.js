@@ -5,7 +5,6 @@ import App from "./calendar/page";
 import reportWebVitals from "./reportWebVitals";
 import { createClient } from "@supabase/supabase-js";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
-import { createRoot } from "react-dom";
 import RootLayout from "./layout";
 
 const supabase = createClient(

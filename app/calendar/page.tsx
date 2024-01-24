@@ -4,6 +4,7 @@ import "./App.css";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import DateTimePicker from "react-datetime-picker";
 import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/server";
 
 function App() {
   const [start, setStart] = useState(new Date());
@@ -11,6 +12,7 @@ function App() {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [session, setSession] = useState(null);
+  const supabase = createClient(cookieStore);
 
   useEffect(() => {
     // Fetch the session data
@@ -23,27 +25,18 @@ function App() {
     }
   }, []); // Run once on mount
 
-  const googleSignIn = () => {
-    const cookieStore = document.cookie;
-    if (cookieStore) {
-      createServerComponentClient({ cookies: cookieStore })
-        .auth.signInWithOAuth({
-          provider: "google",
-          options: {
-            scopes: "https://www.googleapis.com/auth/calendar",
-          },
-        })
-        .then((result) => {
-          if (result.error) {
-            alert("Error logging in to Google provider with Supabase");
-            console.error(result.error);
-          }
-        })
-        .catch((error) => console.error(error));
-    } else {
-      console.error("No cookies found");
+  async function googleSignIn() {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        scopes: "https://www.googleapis.com/auth/calendar",
+      },
+    });
+    if (error) {
+      alert("Error logging in to Google provider with Supabase");
+      console.log(error);
     }
-  };
+  }
 
   const signOut = () => {
     createServerComponentClient({ cookies: document.cookie })

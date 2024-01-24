@@ -1,129 +1,122 @@
+// Mark the file as a client entry
 "use client";
+import "./App.css";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import DateTimePicker from "react-datetime-picker";
+import { useState, useEffect } from "react";
 
-import { createClient } from "@/utils/supabase/client";
-import { useEffect, useState } from "react";
-
-export default function Page() {
-  const [tasks, setTasks] = useState<any[]>([]);
-  const [newTask, setNewTask] = useState("");
-  const supabase = createClient();
+function App() {
+  const [start, setStart] = useState(new Date());
+  const [end, setEnd] = useState(new Date());
+  const [eventName, setEventName] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await supabase.from("calendar").select();
-      setTasks(data || []);
-    };
-    fetchData();
-  }, []);
+    // Fetch the session data
+    const cookieStore = document.cookie;
+    if (cookieStore) {
+      createServerComponentClient({ cookies: cookieStore })
+        .auth.getSession()
+        .then((result) => setSession(result.data.session))
+        .catch((error) => console.error(error));
+    }
+  }, []); // Run once on mount
 
-  const insertTask = async () => {
-    try {
-      const { data, error } = await supabase
-        .from("calendar")
-        .upsert([
-          {
-            task_id: tasks.length + 1,
-            task: newTask,
+  const googleSignIn = () => {
+    const cookieStore = document.cookie;
+    if (cookieStore) {
+      createServerComponentClient({ cookies: cookieStore })
+        .auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            scopes: "https://www.googleapis.com/auth/calendar",
           },
-        ])
-        .select();
-
-      if (error) {
-        console.error(
-          "Error inserting task:",
-          (error as unknown as Error).message
-        );
-      } else {
-        console.log("Inserted task:", data);
-        const { data: updatedData } = await supabase.from("calendar").select();
-        setTasks(updatedData || []);
-      }
-    } catch (error) {
-      console.error("Error inserting task:", (error as Error).message);
+        })
+        .then((result) => {
+          if (result.error) {
+            alert("Error logging in to Google provider with Supabase");
+            console.error(result.error);
+          }
+        })
+        .catch((error) => console.error(error));
+    } else {
+      console.error("No cookies found");
     }
   };
 
-  // Mock 30-day calendar with a grid layout
-  const daysInMonth = 31;
-  const days = Array.from({ length: daysInMonth }, (_, index) => index + 1);
-
-  const getDayOfWeek = (day) => {
-    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const dayIndex = (day - 1) % weekdays.length;
-    return weekdays[dayIndex];
+  const signOut = () => {
+    createServerComponentClient({ cookies: document.cookie })
+      .auth.signOut()
+      .catch((error) => console.error(error));
   };
 
-  const renderCalendar = () => {
-    const calendarRows = [];
-    for (let i = 0; i < daysInMonth; i += 7) {
-      const rowDays = days.slice(i, i + 7);
-      calendarRows.push(
-        <div key={i} className="calendar-row">
-          {rowDays.map((day) => (
-            <div key={day} className="calendar-day">
-              <div className="day-of-week">{getDayOfWeek(day)}</div>
-              <div className="day-number">{day}</div>
-            </div>
-          ))}
-        </div>
-      );
-    }
-    return calendarRows;
+  const createCalendarEvent = () => {
+    console.log("Creating calendar event");
+    const event = {
+      summary: eventName,
+      description: eventDescription,
+      start: {
+        dateTime: start.toISOString(),
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
+      end: {
+        dateTime: end.toISOString(),
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      },
+    };
+
+    // Fetch returns a Promise, so no need for async/await
+    fetch("https://www.googleapis.com/calendar/v3/calendars/primary/events", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + session.provider_token,
+      },
+      body: JSON.stringify(event),
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        alert("Event created, check your Google Calendar!");
+      })
+      .catch((error) => console.error(error));
   };
+
+  console.log(session);
+  console.log(start);
+  console.log(eventName);
+  console.log(eventDescription);
 
   return (
-    <div>
-      <form>
-        <label>
-          New Task:
-          <input
-            type="text"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="button" onClick={insertTask}>
-          Insert Task
-        </button>
-      </form>
-      <div>
-        <h2>Mock 30-Day Calendar</h2>
-        <div className="calendar-container">{renderCalendar()}</div>
+    <div className="App">
+      <div style={{ width: "400px", margin: "30px auto" }}>
+        {session ? (
+          <>
+            <h2>Hey there {session.user.email}</h2>
+            <p>Start of your event</p>
+            <DateTimePicker onChange={setStart} value={start} />
+            <p>End of your event</p>
+            <DateTimePicker onChange={setEnd} value={end} />
+            <p>Event name</p>
+            <input type="text" onChange={(e) => setEventName(e.target.value)} />
+            <p>Event description</p>
+            <input
+              type="text"
+              onChange={(e) => setEventDescription(e.target.value)}
+            />
+            <hr />
+            <button onClick={createCalendarEvent}>Create Calendar Event</button>
+            <p></p>
+            <button onClick={signOut}>Sign Out</button>
+          </>
+        ) : (
+          <>
+            <button onClick={googleSignIn}>Sign in to Google </button>
+          </>
+        )}
       </div>
-      <div>
-        <h2>Task List</h2>
-        <ul>
-          {tasks.slice(0, 10).map((task) => (
-            <li key={task.task_id}>{task.task}</li>
-          ))}
-        </ul>
-      </div>
-      <style jsx>{`
-        .calendar-container {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-        }
-
-        .calendar-row {
-          display: flex;
-          justify-content: space-between;
-        }
-
-        .calendar-day {
-          border: 1px solid #ccc;
-          padding: 8px;
-          text-align: center;
-        }
-
-        .day-of-week {
-          font-weight: bold;
-        }
-
-        .day-number {
-          margin-top: 4px;
-        }
-      `}</style>
     </div>
   );
 }
+
+export default App;

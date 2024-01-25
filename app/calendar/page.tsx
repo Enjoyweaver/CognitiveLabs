@@ -1,11 +1,10 @@
 // Mark the file as a client entry
 "use client";
-import "./App.css";
+
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import DateTimePicker from "react-datetime-picker";
 import { useState } from "react";
 import { createClient } from "@/utils/supabase/server";
-import Cookies from "js-cookie";
 
 function Calendar() {
   const [start, setStart] = useState(new Date());
@@ -13,18 +12,15 @@ function Calendar() {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [session, setSession] = useState(null);
-
-  const supabase = createClient(Cookies.get());
+  const supabase = createClient(cookieStore);
 
   async function googleSignIn() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
         scopes: "https://www.googleapis.com/auth/calendar",
-        redirectTo: window.location.href, // Redirect to the current page
       },
     });
-
     if (error) {
       alert("Error logging in to Google provider with Supabase");
       console.log(error);

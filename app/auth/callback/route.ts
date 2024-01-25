@@ -11,5 +11,8 @@ export async function GET(req: NextRequest) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  return NextResponse.redirect(new URL("/accountform", req.url));
+  // Determine the original page from query parameters or elsewhere
+  const originalPage = searchParams.get("redirect") || "/"; // Default to the root
+
+  return NextResponse.redirect(new URL(originalPage, req.url));
 }

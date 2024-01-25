@@ -8,6 +8,7 @@ import { cookies } from "next/headers";
 import Body from "@/components/Body";
 import "./globals.css";
 import Why from "@/components/Why";
+import AccountButton from "@/components/AccountButton";
 
 export default async function Index() {
   const cookieStore = cookies();
@@ -28,6 +29,7 @@ export default async function Index() {
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
           {isSupabaseConnected && <AuthButton />}
+          {isSupabaseConnected && <AccountButton />}
         </div>
       </nav>
       <div className="animate-in flex-1 flex flex-col gap-10 opacity-0 px-3">
